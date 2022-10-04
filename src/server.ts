@@ -5,6 +5,7 @@ import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import {Server} from 'http'
 import { Logger } from './utils';
+import { routerV1 } from 'router';
 
 // Server 및 라우터 시작
 export class KoaServer {
@@ -26,6 +27,10 @@ export class KoaServer {
         this.koa.use(json());
         this.koa.use(bodyParser());
         this.koa.use(logger((str) => Logger.info('[MAIN] %o', str)));
+
+        // 라우터 사용 및 HTTP Method 사용
+        this.koa.use(routerV1.routes());
+        this.koa.use(routerV1.allowedMethods());
     }
 
     start() {
