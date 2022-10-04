@@ -1,4 +1,4 @@
-import { OkPacket, RowDataPacket } from "mysql2/promise";
+import { OkPacket, RowDataPacket } from "mysql2";
 
 export type DbDefaults =
   | RowDataPacket[]
