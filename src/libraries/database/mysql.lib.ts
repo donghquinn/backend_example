@@ -54,7 +54,7 @@ export class Mysql {
             throw new MysqlError('[MYSQL]', 'OTHER_DATABASE_ERROR', JSON.stringify(error));
         }
     }
-    
+
     stop() {
         if (this.pool) {
             this.pool.end();
